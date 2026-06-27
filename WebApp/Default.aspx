@@ -747,7 +747,7 @@
                                                 <th>Data Lanç.</th>
                                                 <th>Competência</th>
                                                 <th>Status</th>
-                                                <th class="actions-cell">Ações</th>
+                                                <th>Ações</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -774,31 +774,33 @@
                                                 <%# Eval("Status") %>
                                             </span>
                                         </td>
-                                        <td class="actions-cell">
-                                            <!-- Pagar -->
-                                            <asp:LinkButton ID="lnkPagar" runat="server" CommandName="Pagar" CommandArgument='<%# Eval("Id") %>' 
-                                                CssClass="btn-action pay" ToolTip="Marcar como Pago" Visible='<%# Eval("Status").ToString() == "Aberto" %>'>
-                                                <svg style="width:1.25rem;height:1.25rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                                </svg>
-                                            </asp:LinkButton>
-                                            
-                                            <!-- Editar -->
-                                            <asp:LinkButton ID="lnkEditar" runat="server" CommandName="Editar" CommandArgument='<%# Eval("Id") %>' 
-                                                CssClass="btn-action edit" ToolTip="Editar Lançamento" Visible='<%# Eval("Status").ToString() == "Aberto" %>'>
-                                                <svg style="width:1.25rem;height:1.25rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                                                </svg>
-                                            </asp:LinkButton>
-
-                                            <!-- Cancelar -->
-                                            <asp:LinkButton ID="lnkCancelar" runat="server" CommandName="Cancelar" CommandArgument='<%# Eval("Id") %>' 
-                                                CssClass="btn-action cancel" ToolTip="Cancelar Lançamento" Visible='<%# Eval("Status").ToString() == "Aberto" %>'
-                                                OnClientClick="return confirm('Deseja realmente cancelar este lançamento?');">
-                                                <svg style="width:1.25rem;height:1.25rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                                                </svg>
-                                            </asp:LinkButton>
+                                        <td>
+                                            <div class="actions-cell">
+                                                <!-- Pagar -->
+                                                <asp:LinkButton ID="lnkPagar" runat="server" CommandName="Pagar" CommandArgument='<%# Eval("Id") %>' 
+                                                    CssClass="btn-action pay" ToolTip="Marcar como Pago" Visible='<%# Eval("Status").ToString() == "Aberto" %>'>
+                                                    <svg style="width:1.25rem;height:1.25rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                                    </svg>
+                                                </asp:LinkButton>
+                                                
+                                                <!-- Editar -->
+                                                <asp:LinkButton ID="lnkEditar" runat="server" CommandName="Editar" CommandArgument='<%# Eval("Id") %>' 
+                                                    CssClass="btn-action edit" ToolTip="Editar Lançamento" Visible='<%# Eval("Status").ToString() == "Aberto" %>'>
+                                                    <svg style="width:1.25rem;height:1.25rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                                    </svg>
+                                                </asp:LinkButton>
+    
+                                                <!-- Cancelar -->
+                                                <asp:LinkButton ID="lnkCancelar" runat="server" CommandName="Cancelar" CommandArgument='<%# Eval("Id") %>' 
+                                                    CssClass="btn-action cancel" ToolTip="Cancelar Lançamento" Visible='<%# Eval("Status").ToString() == "Aberto" %>'
+                                                    OnClientClick="return confirm('Deseja realmente cancelar este lançamento?');">
+                                                    <svg style="width:1.25rem;height:1.25rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                                    </svg>
+                                                </asp:LinkButton>
+                                            </div>
                                         </td>
                                     </tr>
                                 </ItemTemplate>

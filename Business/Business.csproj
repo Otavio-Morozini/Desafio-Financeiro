@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
+  <Target Name="CopyOutputToWebApp" AfterTargets="Build">
+    <ItemGroup>
+      <MyOutputFiles Include="$(OutputPath)\*.*" />
+    </ItemGroup>
+    <MakeDir Directories="..\WebApp\bin" Condition="!Exists('..\WebApp\bin')" />
+    <Copy SourceFiles="@(MyOutputFiles)" DestinationFolder="..\WebApp\bin\" SkipUnchangedFiles="true" />
+  </Target>
+</Project>
